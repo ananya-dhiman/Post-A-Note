@@ -5,8 +5,9 @@
         
     </head>
     <body>
-        <% for(let i=0;i<messages.length;i++) { %>
-            <li>
+        <h2>Full message</h2>
+
+       
                 <div class="note">
                 <h2>Note</h2>
      
@@ -14,12 +15,10 @@
                     <div>Name - <%= messages[i].user %></div>
                     <div>Date - <%= messages[i].added %></div>                    
                 </div>
-                <a href="/text/<%= i %> " class="btn">Open</a>
-            
-            </li>
-            
+                <a href="/" class="btn">Back</a>
+   
         
-        <% } %>
+
          <a href="/new" class="btn">Add Your Note</a>
     </body>
 
