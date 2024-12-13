@@ -8,10 +8,13 @@ mainRouter.get("/",(req,res)=>res.render("index",{messages:getAllUsers()}));
 //Add note
 mainRouter.get("/new",(req,res,next)=>res.render("form"));
 mainRouter.post("/new",async (req,res)=>{
-  const text=req.body.text;
-  console.log(messageText);
-  const user=req.body.user;
   console.log(req.body);
+  
+  const text=req.body.text;
+  console.log(text);
+  const user=req.body.user;
+  console.log(user);
+
   const date=new Date()
   await AddAUser({text,user,date});
   res.redirect("/");
