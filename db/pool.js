@@ -3,7 +3,12 @@ require('dotenv').config();
 
 try{
 module.exports = new Pool({
-    connectionString: "postgresql://postgres:pbhYwobsqOSmUZhxQGbpeDBBNZrgYumj@postgres.railway.internal:5432/railway",
+    //connectionString: "postgresql://postgres:pbhYwobsqOSmUZhxQGbpeDBBNZrgYumj@postgres.railway.internal:5432/railway",
+    host: "localhost",
+    user: "postgres",
+    database: "notes",
+    password: "postgres",
+    port: 5432 
   });
 }
 catch(e){

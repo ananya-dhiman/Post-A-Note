@@ -4,7 +4,12 @@ const mainRouter=Router();
 const {getAllUsers,AddAUser,getUserDetails}=require("../db/queries");
 
 //Main page 
-mainRouter.get("/",(req,res)=>res.render("index",{messages:getAllUsers()}));
+mainRouter.get("/",async (req,res)=>{
+  console.log("Helooooooooooooooooooooooo")
+  console.log(await getAllUsers());
+  res.render("index",{messages:await getAllUsers()});
+
+});
 //Add note
 mainRouter.get("/new",(req,res,next)=>res.render("form"));
 mainRouter.post("/new",async (req,res)=>{
@@ -20,8 +25,11 @@ mainRouter.post("/new",async (req,res)=>{
   res.redirect("/");
 });
 
-mainRouter.get("/text/:i",(req,res)=>{
-  res.render("text",{messages:getUserDetails(req.params.id) });
-  console.log(req.params.i);
+mainRouter.get("/text/:id",async(req,res)=>{
+  console.log(req.params.id);
+  console.log("See This");
+  console.log(await getUserDetails(req.params.id));
+  res.render("text",{message:await getUserDetails(req.params.id) });
+  
 });
 module.exports=mainRouter;

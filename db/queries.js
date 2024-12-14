@@ -8,17 +8,18 @@ async function getAllUsers(){
 
 }
 async function AddAUser({text,user,date}){
-    await pool.query("INSERT INTO notetable (text,user,added) VALUES ($1,$2,$3); ",[text,user,date]);
+    await pool.query("INSERT INTO notetable (text,name,added) VALUES ($1,$2,$3); ",[text,user,date]);
     console.log("INSERTED!");
 
     
 }
 
 async function getUserDetails(id){
-
-    const {row}=await pool.query("SELECT * FROM USERNAME WHERE id = $1",[id]);
-    console.log(row);
-    return row;
+    console.log("Id in details",id);
+    const {rows}=await pool.query("SELECT * FROM notetable WHERE id = $1",[id]);
+    console.log("Getting Details....");
+    console.log(rows);
+    return rows;
 
 }
 

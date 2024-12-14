@@ -5,21 +5,23 @@
         
     </head>
     <body>
-        <% for(let i=0;i<messages.length;i++) { %>
+        <%console.log("Inside Index")%>
+        <%console.log(Object.keys(messages))%>
+        <% messages.forEach(message=>{ %>
             <li>
                 <div class="note">
                 <h2>Note</h2>
      
-                    <div><%= messages[i].text %></div>
-                    <div>Name - <%= messages[i].user %></div>
-                    <div>Date - <%= messages[i].added %></div>                    
+                    <div><%= message.text %></div>
+                    <div>Name - <%= message.name %></div>
+                    <div>Date - <%= message.added %></div>                    
                 </div>
-                <a href="/text/<%= i %> " class="btn">Open</a>
+                <a href="/text/<%= message.id %> " class="btn">Open</a>
             
             </li>
             
         
-        <% } %>
+        <% });%>
          <a href="/new" class="btn">Add Your Note</a>
     </body>
 
